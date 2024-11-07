@@ -6,9 +6,13 @@ let cityN, HobbyN;
 export default async function UserProfilePage() {
     
     const session = await auth();
+    const userId = session?.user?.id;
+    if (!userId) {
+      throw new Error("You need to login");
+    }
     
     const users = (await db.query(`SELECT * FROM users WHERE id=$1`,
-        [session.user.id]
+        [userId]
     )).rows;
     
     cityN = users[0].city;
@@ -19,7 +23,7 @@ export default async function UserProfilePage() {
         "use server";
         
         await db.query(`UPDATE users SET city=$1 WHERE id=$2`,
-            [cityNameState,session.user.id]
+            [cityNameState,userId]
         );
 
     }
@@ -28,7 +32,7 @@ export default async function UserProfilePage() {
         "use server";
         
         await db.query(`UPDATE users SET hobby=$1 WHERE id=$2`,
-            [hobbyState,session.user.id]
+            [hobbyState,userId]
         );
 
     }
