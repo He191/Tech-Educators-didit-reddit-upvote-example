@@ -36,7 +36,10 @@ export default async function Home() {
 
   return (
     <div className="max-w-screen-lg mx-auto p-4 bg-zinc-800 mt-10 rounded-xl">
-      <h2 className="text-3xl mb-4">Add a new post</h2>
+     <div className="flex justify-between items-center mb-4">
+        <h2 className="text-3xl">Add a new post</h2>
+        <LogoutButton />
+      </div>
       <form action={savePost} className="flex flex-col space-y-4">
         <input
           type="text"
@@ -54,5 +57,6 @@ export default async function Home() {
         </button>
       </form>
     </div>
+    
   );
 }

@@ -7,6 +7,7 @@ import { useFormState } from "react-dom";
 import { CommentFormButton } from "./CommentFormButton";
 
 export function CommentForm({ postId, parentCommentId }) {
+  const { session, status } = useSession();
   const [state, dispatch] = useFormState(saveComment, {
     postId,
     parentCommentId,
@@ -19,6 +20,16 @@ export function CommentForm({ postId, parentCommentId }) {
       setOpen(false);
     }
   }, [state.success]);
+  function renderForm() {
+    if (status === "loading") {
+      return <p>Loading...</p>;
+    }
+
+    if (!session) {
+      return <p>Please log in to comment.</p>;
+    }
+  }
+  
 
   return (
     <div className="ml-4">
