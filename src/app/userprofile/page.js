@@ -1,7 +1,6 @@
 import { db } from "@/db";
 import { auth } from "@/auth";
 import ClickButton from "@/components/ClickButton";
-// adding a comment
 
 let cityN, HobbyN;
 export default async function UserProfilePage() {
