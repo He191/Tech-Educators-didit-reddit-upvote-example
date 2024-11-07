@@ -1,3 +1,9 @@
+## Reflection
+I have fixed the build error initially and deployed to vercel.
+
+Post that I have tried to create User Profile page that nicely works when user click on the name. User can set City and Hobbies in it. This all worked fine locally, but when I was deploying yesterday night on vercel the log in functinality didn't work. Tried a lot to fix it, but couldn't get it fixed. Can you please help what error? Can not access null in user in UserProfile page. 
+Even after removing the page, It still didn't log in, the error I get is redirect URL related.
+
 ## Upvote
 
 Upvote is a Reddit-esque web application that allows users to create posts, upvote and downvote posts, and comment on posts in a multi-threaded, nested list.
